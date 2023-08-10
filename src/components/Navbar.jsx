@@ -21,6 +21,18 @@ const Navbar = () => {
                     About
                     </button>
               </NavLink>
+
+              <NavLink to="/login" className={({isActive}) => (isActive ? 'link-active' : '')}>
+                <button className="bg-transparent cursor-pointer border-none hover:text-white">
+                    Entrar
+                    </button>
+              </NavLink>
+
+              <NavLink to="/register" className={({isActive}) => (isActive ? 'link-active' : '')}>
+                <button className="bg-transparent cursor-pointer border-none hover:text-white">
+                    Registrar
+                    </button>
+              </NavLink>
             </div>
           </div>
         </nav>        
