@@ -9,11 +9,35 @@ import BtnSmBlue from '../../components/Buttons/BtnSmBlue';
 const Register = () => {
 
   // states
-  const [name, setName] = useState('')
+  const [displayName, setDisplayName] = useState('')
   const [email, setEmail] = useState('');
   const [passwd, setPasswd] = useState('')
   const [confirmPasswd, setConfirmPasswd] = useState('')
+  const [error, setError] = useState("");
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // zerando erros
+    setError("");
+
+    // construindo user
+    const user = {
+      displayName,
+      email,
+      passwd
+    }
+
+    // checar se senha e confirm senha são iguais
+    if (passwd !== confirmPasswd) {
+      setError("As senhas devem ser iguais");
+      return;
+    }
+
+    console.log(user);
+
+  }
 
   return (
     <>
@@ -23,8 +47,8 @@ const Register = () => {
           <p className='flex justify-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
 
-        <form action="#" className="">
-          <InputText placeholder={'Name'} required={true} value={name} onChange={e => setName(e.target.value)} />
+        <form onSubmit={handleSubmit} className="">
+          <InputText placeholder={'Name'} required={true} value={displayName} onChange={e => setDisplayName(e.target.value)} />
 
           <InputText placeholder={'Email'} required={true} value={email} onChange={e => setEmail(e.target.value)} />
 
@@ -32,7 +56,8 @@ const Register = () => {
 
           <InputText placeholder={'Confirmar Senha'} required={true} value={confirmPasswd} onChange={e => setConfirmPasswd(e.target.value)} />
 
-          <BtnSmBlue label={'Entrar'} type={'submit'} />
+          <BtnSmBlue label={'Salvar'} type={'submit'} />
+          {error && <p className='text-red-400'>{error}</p>}
         </form>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // componentes
 import InputText from "../../components/Inputs/InputText";
@@ -10,7 +10,7 @@ const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
   return (
-    <div className="card sm:w-6 md:w-1/3 mx-auto ">
+    <div className="card sm:w-6 md:w-1/4 mx-auto ">
         
     <div className="justify-center mb-5">
       <h1>Login</h1>
@@ -23,6 +23,7 @@ const [password, setPassword] = useState('');
       { password }
       <InputText placeholder={'Senha'} required={true} value={password} onChange={ e => setPassword(e.target.value) } />
       <BtnSmBlue label={'Entrar'} type={'submit'} />
+      
     </form>
   </div>
   );
