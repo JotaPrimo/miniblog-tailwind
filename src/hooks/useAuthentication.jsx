@@ -26,5 +26,27 @@ export const useAuthentication = () => {
     }
   }
 
+  // funcao para criar novo usuario
+  // funcao assincrona, tem que verificar se deu problema e foi cancelada, setar o loadin e tentar cadastrar
+  const createUser = async (data) => {
+    checkIfIsCanceled();
+
+    setLoading(true);
+
+    try {
+      const {user} = await createUserWithEmailAndPassword(
+        auth, 
+        data.email,
+        data.password
+      )
+
+        await updateProfile(user, {
+          displayName: data.displayName
+        })
+
+    } catch (error) {
+
+    }
+  }
 
 }
