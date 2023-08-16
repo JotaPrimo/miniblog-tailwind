@@ -3,7 +3,7 @@ import InputText from "../../components/Inputs/InputText";
 
 const Login = () => {
   return (
-    <div className="card sm:w-6 md:w-1/3 mx-auto">
+    <div className="card sm:w-6 md:w-1/3 mx-auto ">
       <div className="flex justify-center">
         <div>
           <h1 className="text-center">Login</h1>
